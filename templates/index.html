@@ -1,0 +1,33 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Movie Recommender</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Movie Recommender System</h1>
+        <form action="/" method="post" class="my-3">
+            <input type="text" name="title" placeholder="Enter a movie title" required class="form-control">
+            <button type="submit" class="btn btn-primary mt-2">Recommend</button>
+        </form>
+        <div class="row">
+            {% for recommendation in recommendations %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ recommendation.poster }}" class="card-img-top" alt="Poster" style="height: 300px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ recommendation.title }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
